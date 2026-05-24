@@ -1,10 +1,12 @@
 import heroImg from "../assets/programming.svg"
 import Socials from "../components/Socials.jsx"
+import Projects from "../components/Projects.jsx"
+import Skills from "../components/Skills.jsx"
 
 export default function Home() {
   return (
-    <section id="home" className="max-w-6xl mx-auto px-6 pt-28">  
-    <section className="max-w-6xl mx-auto px-6 pt-28">
+    <>
+    <section id="home" className="max-w-6xl mx-auto px-6 pt-28">
       <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-16">
 
         {/* LEFT: Text */}
@@ -14,22 +16,22 @@ export default function Home() {
           </h1>
 
           <p className="text-gray-400 mt-5 max-w-lg mx-auto md:mx-0">
-            Computer Science student passionate about building
-            <span className="text-gray-200"> web</span> and
-            <span className="text-gray-200"> mobile</span> applications.
+            A Computer Science student passionate about building
+            <span className="text-gray-200"> web applications</span>
+            .
           </p>
           <Socials />
           <div className="mt-8 flex justify-center md:justify-start gap-4">
             <a
               href="#projects"
-              className="bg-blue-600 hover:bg-blue-700 transition px-6 py-2.5 rounded-lg font-medium"
+              className="bg-blue-600 hover:bg-blue-700 active:scale-95 transition duration-200 transform px-6 py-2.5 rounded-lg font-medium"
             >
               View Projects
             </a>
 
             <a
               href="#"
-              className="border border-gray-600 hover:border-gray-400 transition px-6 py-2.5 rounded-lg font-medium"
+              className="border border-gray-600 hover:border-gray-400 active:scale-95 transition duration-200 transform px-6 py-2.5 rounded-lg font-medium"
             >
               Resume
             </a>
@@ -46,6 +48,12 @@ export default function Home() {
 
       </div>
     </section>
-    </section>
+
+    {/* Projects Section */}
+    <Projects />
+
+    {/* Skills Section */}
+    <Skills />
+    </>
   )
 }

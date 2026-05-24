@@ -5,22 +5,39 @@ export default function Navbar() {
 
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]")
+    let ticking = false
 
     const onScroll = () => {
-      let current = "home"
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          let current = "home"
 
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 120
-        if (window.scrollY >= sectionTop) {
-          current = section.getAttribute("id")
-        }
-      })
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop - 150
+            if (window.scrollY >= sectionTop) {
+              current = section.getAttribute("id")
+            }
+          })
 
-      setActive(current)
+          setActive(current)
+          // Update URL hash based on scroll position
+          window.history.replaceState(null, "", `#${current}`)
+          ticking = false
+        })
+        ticking = true
+      }
     }
 
+    // Call on mount to detect initial section
+    onScroll()
+
     window.addEventListener("scroll", onScroll)
-    return () => window.removeEventListener("scroll", onScroll)
+    window.addEventListener("resize", onScroll)
+    
+    return () => {
+      window.removeEventListener("scroll", onScroll)
+      window.removeEventListener("resize", onScroll)
+    }
   }, [])
 
   return (
@@ -33,7 +50,7 @@ export default function Navbar() {
             <a
               key={item}
               href={`#${item}`}
-              className={`transition relative ${
+              className={`transition duration-300 relative ${
                 active === item
                   ? "text-blue-500"
                   : "text-gray-300 hover:text-white"
@@ -42,7 +59,7 @@ export default function Navbar() {
               {item.charAt(0).toUpperCase() + item.slice(1)}
 
               {active === item && (
-                <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-blue-500 rounded"></span>
+                <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-blue-500 rounded transition duration-300"></span>
               )}
             </a>
           ))}

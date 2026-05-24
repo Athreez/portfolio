@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* LeetCode Component Sizing */
+#user_profile_detail_container {
+  height: 550px;
+}
+
+#user_contest_info_container {
+  height: 233px;
+  overflow: hidden;
+}
+
+#user_solved_stats_container {
+  height: 310px;
+  overflow: hidden;
+}
