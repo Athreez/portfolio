@@ -31,7 +31,7 @@ export default function Home() {
             </a>
 
             <a
-              href="https://drive.google.com/file/d/1mwnXJBr_OLFopLZ6iuF6mTwdbEmdfXmY/view?usp=sharing"
+              href={import.meta.env.VITE_RESUME_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="border border-gray-600 hover:border-gray-400 active:scale-95 transition duration-200 transform px-6 py-2.5 rounded-lg font-medium"
