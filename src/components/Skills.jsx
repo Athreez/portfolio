@@ -59,7 +59,7 @@ export default function Skills() {
       <div className="mt-16">
         <h3 className="text-xl font-semibold mb-6 text-white flex items-center gap-2">
           <span className="w-2 h-2 bg-yellow-500 rounded-full"></span>
-          Competitive Programming
+          Competitive Programming - Leetcode Guardian (peak rating 2200+)
         </h3>
         
         <Suspense fallback={
